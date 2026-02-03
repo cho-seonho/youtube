@@ -11,8 +11,8 @@ import re
 # ==========================================
 VERSION = "V8.9"
 
-GEMINI_API_KEY = "여기에_재미니_API_KEY"
-YOUTUBE_API_KEY = "여기에_유튜브_API_KEY"
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+YOUTUBE_API_KEY = st.secrets["YOUTUBE_API_KEY"]
 
 socket.setdefaulttimeout(30)
 
@@ -131,4 +131,5 @@ if st.session_state.search_results:
                     st.markdown(final_result.text)
                     st.download_button("📂 포스팅 저장하기", final_result.text, file_name="knowledge_blog.txt")
             except Exception as e:
+
                 st.error(f"생성 중 오류: {e}")
